@@ -1,0 +1,117 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<body id="homepage">
+            <!-- section begin -->
+            <section id="section-speakers">
+                <div class="container relative">
+                    <div class="row">
+                        <div class="col-md-12 text-center">
+                            <h2><span class="id-color">Staff Information</span> List</h2>
+                            <p class="lead">We invites digital experts arround the world</p>
+                            <div class="spacer-single"></div>
+                        </div>
+    {% for person in workers %}
+        {% if person.is_manager %}
+                        <div class="col-md-4 ">
+                            <div class="profile_pic text-center">
+                                <figure class="picframe mb30">
+                                    <a href="{% url 'jsondata' person.id %}">
+                                        <span class="overlay-v">
+                                            <span style="margin-right: 30px">
+                                                Email: {{ person.email }}<br>
+                                                Telephone: {{ person.phone }}<br>
+                                                Department: {{ person.department }}<br>
+                                                <br><br>
+                                                <p class="text-center" style="background-color: #0EC3F7;margin-right: 30px">>Click Anywhere to see Json data<</p>
+                                            </span>
+                                        </span>
+                                    </a>
+                                    <img width="300" height="300" src="{{ person.img.url }}" class="img-responsive" alt="">
+                                </figure>
+
+                                <h3>{{ person.name }} {{ person.last_name }}</h3>
+                                <span class="subtitle">{{ person.job }} & Manager</span>
+                            </div>
+                        </div>
+        {% endif %}
+    {% endfor %}
+
+            {% for person in workers %}
+                {% if not person.is_manager %}
+                        <div class="col-md-3 mb30">
+                            <div class="profile_pic text-center">
+                                <figure class="picframe mb30">
+{#                                    <a href="{% url 'jsondata' person.id %}">#}
+                                        <span class="overlay-v">
+                                            <span>
+                                                Email: {{ person.email }}
+                                                Telephone: {{ person.phone }}
+                                                Department: {{ person.department }}
+
+                                                  <br><br>
+                                                <p class="small" style="background-color: #0EC3F7">>Click Anywhere to see Json data<</p class="small">
+                                            </span>
+                                        </span>
+                                    </a>
+                                    <img width="300" height="300" src="{{ person.img.url }}" class="img-responsive" alt="">
+                                </figure>
+
+                                <h3>{{ person.name }} {{ person.last_name }}</h3>
+                                <span class="subtitle">{{ person.job }}</span>
+                            </div>
+                        </div>
+                {% endif %}
+            {% endfor %}
+                    </div>
+                </div>
+            </section>
+            <!-- section close -->
+
+            <!-- section begin -->
+            <section id="section-fun-facts" class="no-top no-bottom text-light" data-stellar-background-ratio=".2">
+                <div class="overlay-bg pt80 pb80">
+                    <div class="container">
+
+                        <div class="row">
+                            <div class="col-md-3 col-xs-6 wow fadeIn" data-wow-delay="0">
+                                <div class="de_count">
+                                    <i class="icon_id-2 id-color" data-animation="fadeInDown" data-delay="0"></i>
+                                    <h3 class="timer" data-to="8800" data-speed="2500">0</h3>
+                                    <span>Participants</span>
+                                </div>
+                            </div>
+
+                            <div class="col-md-3 col-xs-6 wow fadeIn" data-wow-delay=".25s">
+                                <div class="de_count">
+                                    <i class="icon_easel  id-color" data-animation="fadeInDown" data-delay="200"></i>
+                                    <h3 class="timer" data-to="300" data-speed="2500">0</h3>
+                                    <span>Topics</span>
+                                </div>
+                            </div>
+
+                            <div class="col-md-3 col-xs-6 wow fadeIn" data-wow-delay=".5s">
+                                <div class="de_count">
+                                    <i class="icon_headphones  id-color" data-animation="fadeInDown" data-delay="400"></i>
+                                    <h3 class="timer" data-to="50" data-speed="2500">0</h3>
+                                    <span>Speakers</span>
+                                </div>
+                            </div>
+
+                            <div class="col-md-3 col-xs-6 wow fadeIn" data-wow-delay=".75s">
+                                <div class="de_count">
+                                    <i class="icon_globe id-color" data-animation="fadeInDown" data-delay="600"></i>
+                                    <h3 class="timer" data-to="20" data-speed="2500">0</h3>
+                                    <span>Awards</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- section close -->
+
+            <!-- section begin -->
+
+
+{% endblock %}
