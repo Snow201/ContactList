@@ -7,6 +7,7 @@
                 <div class="container relative">
                     <div class="row">
                         <div class="col-md-12 text-center">
+                            <img class="text-center" src="{% static 'images/logo-dark.png' %}">
                             <h2><span class="id-color">Staff Information</span> List</h2>
                             <p class="lead">We invites digital experts arround the world</p>
                             <div class="spacer-single"></div>
@@ -42,7 +43,7 @@
                         <div class="col-md-3 mb30">
                             <div class="profile_pic text-center">
                                 <figure class="picframe mb30">
-{#                                    <a href="{% url 'jsondata' person.id %}">#}
+                                    <a href="{% url 'jsondata' person.id %}">
                                         <span class="overlay-v">
                                             <span>
                                                 Email: {{ person.email }}
