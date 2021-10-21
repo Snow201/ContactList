@@ -7,4 +7,3 @@ def index(request):
     context = {'workers':workers,}
     return render(request,'index.html',context)
 
-

@@ -13,7 +13,18 @@ class PersonView(viewsets.ModelViewSet):
 
 
 def jsondata(request):
+    return redirect('staff/person')
 
-    return redirect('staffperson')
+def person(request, person_id):
+    person = Person.objects.get(id=person_id)
+    context = {'person':person}
+    return render(request,'cv.html',context)
 
 
+def alljson(request):
+    return redirect('staff/person')
+
+def allhtml(request):
+    workers = Person.objects.all()
+    context = {'workers':workers}
+    return render(request,'cv.html',context)

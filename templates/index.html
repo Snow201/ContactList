@@ -7,9 +7,9 @@
                 <div class="container relative">
                     <div class="row">
                         <div class="col-md-12 text-center">
-                            <img class="text-center" src="{% static 'images/logo-dark.png' %}">
-                            <h2><span class="id-color">Staff Information</span> List</h2>
-                            <p class="lead">We invites digital experts arround the world</p>
+                            <h1><span class="id-color">Staff Information</span> List</h1>
+                          <a href="{% url 'html' %}">  <h3 class="lead">All workers information(HTML)</h3></a>
+                           <a href="{% url 'json' %}"> <h3 class="lead">All workers information(JSON)</h3></a>
                             <div class="spacer-single"></div>
                         </div>
     {% for person in workers %}
@@ -17,17 +17,19 @@
                         <div class="col-md-4 ">
                             <div class="profile_pic text-center">
                                 <figure class="picframe mb30">
-                                    <a href="{% url 'jsondata' person.id %}">
+
                                         <span class="overlay-v">
                                             <span style="margin-right: 30px">
                                                 Email: {{ person.email }}<br>
                                                 Telephone: {{ person.phone }}<br>
                                                 Department: {{ person.department }}<br>
                                                 <br><br>
-                                                <p class="text-center" style="background-color: #0EC3F7;margin-right: 30px">>Click Anywhere to see Json data<</p>
+                                               <a href="{% url 'jsondata' person.id %}"> <p class="text-center" style="background-color: #0EC3F7;margin-right: 30px">>Click here to see Json data<</p> </a>
+                                                <br>
+                                                <a href="{% url 'info' person.id %}"> <p class="text-center" style="background-color: #1a8b49;margin-right: 30px">Personal CV data</p> </a>
                                             </span>
                                         </span>
-                                    </a>
+
                                     <img width="300" height="300" src="{{ person.img.url }}" class="img-responsive" alt="">
                                 </figure>
 
@@ -43,7 +45,7 @@
                         <div class="col-md-3 mb30">
                             <div class="profile_pic text-center">
                                 <figure class="picframe mb30">
-                                    <a href="{% url 'jsondata' person.id %}">
+
                                         <span class="overlay-v">
                                             <span>
                                                 Email: {{ person.email }}
@@ -51,10 +53,12 @@
                                                 Department: {{ person.department }}
 
                                                   <br><br>
-                                                <p class="small" style="background-color: #0EC3F7">>Click Anywhere to see Json data<</p class="small">
+                                                <a href="{% url 'jsondata' person.id %}"> <p class="small" style="background-color: #0EC3F7">>Click Here to see Json data<</p class="small"></a>
+                                                <br>
+                                                <a href="{% url 'info' person.id %}"> <p class="text-center" style="background-color: #1a8b49;margin-right: 30px">Personal CV data</p> </a>
                                             </span>
                                         </span>
-                                    </a>
+
                                     <img width="300" height="300" src="{{ person.img.url }}" class="img-responsive" alt="">
                                 </figure>
 
